@@ -5,14 +5,17 @@ import {selectbook} from '../actions/index';
 
 class BookList extends Component {
   renderList(){
+      if(!this.props.books){
+        return(<div>No data</div>);
+      }
       return this.props.books.map((book) => {
-        return(<li key={book.title} className="list-group-item">{book.title}</li>);
+        return(<li onClick={() => this.props.selectbook(book)} key={book.title} className="list-group-item">{book.title}</li>);
       });
   }
 
   render(){
       return(
-          <ul className="list-group col-sm-4">{this.renderList()}</ul>
+          <ul className="list-group col-sm-2">{this.renderList()}</ul>
       );
   }
 }
