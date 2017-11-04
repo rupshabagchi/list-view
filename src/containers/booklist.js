@@ -9,13 +9,22 @@ class BookList extends Component {
         return(<div>No data</div>);
       }
       return this.props.books.map((book) => {
-        return(<li onClick={() => this.props.selectbook(book)} key={book.title} className="list-group-item">{book.title}</li>);
+        return(
+          <li
+          key={book.title}
+          onClick={() => this.props.selectbook(book)}
+          className="list-group-item">
+            {book.title}
+          </li>
+        );
       });
   }
 
   render(){
       return(
-          <ul className="list-group col-sm-2">{this.renderList()}</ul>
+          <ul className="list-group col-sm-2">
+            {this.renderList()}
+          </ul>
       );
   }
 }
@@ -27,7 +36,8 @@ class BookList extends Component {
   }
 
   function mapDispatchToProps(dispatch){
-    return bindActionCreators({selectbook: selectbook}, dispatch);
+
+    return bindActionCreators({ selectbook: selectbook}, dispatch);
   }
 
 
