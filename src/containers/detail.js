@@ -13,7 +13,8 @@ class BookDetail extends Component {
       <div>
 
         <h3>You selected:</h3>
-        <div>{this.props.book.title}</div>
+        <div>Name: {this.props.book.title}</div>
+        <div>Length: {this.props.book.length}</div>
       </div>
       );
     }
